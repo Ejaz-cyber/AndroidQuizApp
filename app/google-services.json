@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "421085775901",
+    "project_id": "orange-quiz-32e35",
+    "storage_bucket": "orange-quiz-32e35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421085775901:android:0381c6305e4da342e41ef4",
+        "android_client_info": {
+          "package_name": "in.iejaz.orangequiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421085775901-3vbvg06t3olk2i9q2fg29s000957opeu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ7aImhAvtVSsJEoxGugklDSrVbnh0VE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421085775901-3vbvg06t3olk2i9q2fg29s000957opeu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

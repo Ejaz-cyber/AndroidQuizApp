@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/quiz_card_root"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="6dp"
+    app:cardBackgroundColor="#DFF1E5D2"
+
+   style="@style/myCardStyle"
+
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/quiz_card_image"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher_foreground"
+        />
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/quiz_card_name"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="quiz card name" />
+
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

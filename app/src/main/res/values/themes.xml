@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.OrangeQuiz" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/btn1</item>
+        <item name="colorPrimaryVariant">@color/btn1</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/myStatusBar</item>
+        <!-- Customize your theme here. -->
+
+
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorAccent">@color/splashStatusBar</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/myStatusBar</item>
+    </style>
+
+
+<!--    style for timerup dialog-->
+    <style name="timeUpDialog">
+        <item name="android:windowBackground">@drawable/empty_bg</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowMinWidthMajor">80%</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+
+    <style name="myCardStyle">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="rippleColor">@color/white</item>
+        <item name="android:checkable">true</item>
+    </style>
+
+    <style name="myCardStyle_leaders">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="strokeColor">@color/golden</item>
+        <item name="rippleColor">@color/btn1</item>
+        <item name="android:checkable">true</item>
+    </style>
+
+
+</resources>

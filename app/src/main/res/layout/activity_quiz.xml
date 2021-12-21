@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_quiz"
+    android:orientation="vertical"
+
+    tools:context=".QuizActivity">
+
+    <FrameLayout
+        android:id="@+id/top_frame_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<!--            timer-->
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+            android:id="@+id/timer_pbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="@id/top_frame"
+            app:layout_constraintStart_toStartOf="@id/top_frame"
+            app:layout_constraintTop_toTopOf="@id/top_frame"
+            app:rcAnimationEnable="true"
+            app:rcAnimationSpeedScale="1"
+            app:rcBackgroundColor="@android:color/transparent"
+            app:rcMax="100"
+            app:rcProgressColors="@array/timer_progress_gradient"
+            app:rcRadius="3dp" />
+
+            <TextView
+                android:id="@+id/q_no_outof"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="40dp"
+                android:textStyle="bold"
+                tools:text="12/20" />
+
+
+            <TextView
+                android:id="@+id/q_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="20dp"
+                tools:text="Science" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+    <!--question answer card-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_frame_frame">
+
+
+        <LinearLayout
+            android:id="@+id/quiz_layout_cards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timer_pbar">
+
+            <!--        question card-->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                style="@style/myCardStyle"
+                app:strokeColor="@color/btn1"
+                android:checkable="false"
+                android:focusable="false"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:id="@+id/question_txt"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:hint="ar radiusand corner radius\n\nand corner radiusand corner radiusand corner radius"
+                        android:textSize="20sp" />
+
+
+                    <ImageView
+                        android:maxHeight="200dp"
+                        android:maxWidth="200dp"
+                        android:id="@+id/question_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:scaleType="centerInside"
+                        tools:src="@drawable/logo_final"
+
+                        />
+
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!--        Answer cards-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:onClick="cardOptionClick"
+                    android:id="@+id/cardoption1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="60dp"
+                    app:cardElevation="6dp"
+                    android:checkable="true"
+                    app:cardBackgroundColor="@color/ansCardDefault"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            app:cardBackgroundColor="@color/btn1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/cardA"
+                            app:cardCornerRadius="20dp"
+                            android:layout_marginStart="5dp"
+                            app:cardElevation="5dp"
+                            android:layout_marginVertical="3dp">
+                            <TextView
+                                android:textColor="#131833"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="A"
+                                android:textSize="20sp"
+                                android:gravity="center"
+                                android:textStyle="bold"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_marginHorizontal="12dp"
+                            android:textColor="@color/black"
+                            android:id="@+id/answer_txt_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Answer 1"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:onClick="cardOptionClick"
+                    android:id="@+id/cardoption2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="60dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/ansCardDefault"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_margin="6dp"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardB"
+                            app:cardBackgroundColor="@color/btn1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardCornerRadius="20dp"
+                            android:layout_marginStart="5dp"
+                            app:cardElevation="5dp"
+                            android:layout_marginVertical="3dp">
+                            <TextView
+                                android:textColor="#131833"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="B"
+                                android:textSize="20sp"
+                                android:gravity="center"
+                                android:textStyle="bold"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_marginHorizontal="12dp"
+
+                            android:textColor="@color/black"
+                            android:id="@+id/answer_txt_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Answer 1"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:onClick="cardOptionClick"
+                    android:id="@+id/cardoption3"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardElevation="6dp"
+                    app:cardCornerRadius="60dp"
+
+                    app:cardBackgroundColor="@color/ansCardDefault"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            app:cardBackgroundColor="@color/btn1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardCornerRadius="20dp"
+                            android:id="@+id/cardC"
+                            android:layout_marginStart="5dp"
+                            app:cardElevation="5dp"
+                            android:layout_marginVertical="3dp">
+                            <TextView
+                                android:textColor="#131833"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="C"
+                                android:textSize="20sp"
+                                android:gravity="center"
+                                android:textStyle="bold"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_marginHorizontal="12dp"
+
+                            android:id="@+id/answer_txt_3"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Answer 1"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:onClick="cardOptionClick"
+                    android:id="@+id/cardoption4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="60dp"
+                    app:cardElevation="6dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/ansCardDefault"
+
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            app:cardBackgroundColor="@color/btn1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/cardD"
+                            app:cardCornerRadius="20dp"
+                            android:layout_marginStart="5dp"
+                            app:cardElevation="5dp"
+                            android:layout_marginVertical="3dp">
+                            <TextView
+                                android:textColor="#131833"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="D"
+                                android:textSize="20sp"
+                                android:gravity="center"
+                                android:textStyle="bold"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:textColor="@color/black"
+                            android:layout_marginHorizontal="12dp"
+
+                            android:id="@+id/answer_txt_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Answer 1"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </LinearLayout>
+
+
+            <!--        Next Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_next"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:padding="8dp"
+                app:strokeColor="@color/ansCardDefault"
+                app:strokeWidth="2dp"
+                app:cornerRadius="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:text="next"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

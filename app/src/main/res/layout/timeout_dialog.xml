@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/btn1"
+    android:background="@android:color/transparent"
+    app:cardElevation="18dp"
+    android:clickable="true"
+    android:focusable="true"
+
+    android:layout_gravity="center"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="20dp"
+
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:text="Oops times up..."/>
+
+<!--    <ImageView-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:src="@drawable/ic_baseline_timer_24"-->
+<!--        />-->
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            app:lottie_rawRes="@raw/timesup_final"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_timeup_goback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="okay!"
+            android:layout_margin="12dp"
+
+            />
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

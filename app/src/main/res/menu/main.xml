@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/leaders"
+        android:title="Leaders"
+        android:icon="@drawable/ic_round_leaderboard_24"
+        app:showAsAction="always"
+        android:contentDescription="leader board"
+        android:orderInCategory="1"
+/>
+
+    <item android:id="@+id/shareApp"
+        android:title="Share app"
+        android:icon="@drawable/ic_round_share_24"
+        android:contentDescription="share app link"
+        app:showAsAction="ifRoom"/>
+
+
+    <item android:id="@+id/signout"
+        android:title="Logout"
+        app:showAsAction="never"
+
+        />
+
+
+    <item android:id="@+id/crash_report"
+        android:title="Report Crash"
+        app:showAsAction="never"
+        android:contentDescription="Report app crash"/>
+
+
+
+</menu>

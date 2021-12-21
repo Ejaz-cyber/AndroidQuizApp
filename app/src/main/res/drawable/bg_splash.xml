@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    this is backgroud-->
+    <item android:drawable="@drawable/splash_gradient"/>
+
+<!--    this is main thing to splash-->
+    <item>
+        <bitmap android:gravity="center"
+            android:src="@drawable/logo_final2"
+
+            />
+    </item>
+
+
+
+
+</layer-list>
