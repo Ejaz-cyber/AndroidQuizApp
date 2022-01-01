@@ -2,9 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
 
     >
-    <gradient android:startColor="@color/btn1"
-        android:endColor="#B0F4B3"
-        android:centerColor="@color/btn1_light"
+    <gradient android:startColor="#216888"
+        android:endColor="#01111C"
         android:angle="-90"/>
 
 <!--<solid android:color="@color/btn1"/>-->

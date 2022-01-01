@@ -322,7 +322,7 @@
             tools:layout_editor_absoluteY="108dp">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_play_again"
+                android:id="@+id/card_check"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:layout_gravity="center"
@@ -333,17 +333,20 @@
                 app:cardCornerRadius="35dp">
 
                 <ImageView
+                    android:id="@+id/card_check_img"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/play_again_img"
+                    android:src="@drawable/ic_launcher_check"
 
                     />
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
+                android:id="@+id/card_check_text"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Play Other"
+                android:text="Check"
                 android:textColor="@color/white" />
         </LinearLayout>
 

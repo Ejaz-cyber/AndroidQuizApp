@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,7 +54,7 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
 
     CardView cardDev;
     CardView cardShare;
-    CardView cardPlayOther;
+    CardView cardCheck;
     CardView cardLeaderBoard;
     CardView cardReview;
     LottieAnimationView lottieAnimationView;
@@ -72,6 +73,9 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
     private static final String NO_IMG_URL = "https://firebasestorage.googleapis.com/v0/b/orange-quiz-32e35.appspot.com/o/noImglogo%2Flogo_final_no_dp.jpg?alt=media&token=d679e49c-e197-43b5-8093-f24e52ab1582";
 
     String apkLink;
+    static boolean isChecking = false;
+    ImageView cardCheckImg;
+    TextView cardCheckText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +89,7 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
         qRight = getIntent().getIntExtra("qRight", -1);
         qSkiped = getIntent().getIntExtra("qSkiped", -1);
         noOfQues = getIntent().getIntExtra("noOfQues", -1);
-        qTitle = getIntent().getStringExtra("quizTitle");
+        qTitle = getIntent().getStringExtra("QUIZ_TITLE");
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Score Board");
@@ -101,11 +105,18 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
 
         cardDev = findViewById(R.id.card_dev);
         cardLeaderBoard = findViewById(R.id.card_leaderboard);
-        cardPlayOther = findViewById(R.id.card_play_again);
+        cardCheck = findViewById(R.id.card_check);
         cardReview = findViewById(R.id.card_review);
         cardShare = findViewById(R.id.card_share);
         lottieAnimationView = findViewById(R.id.lottie_animationView);
 
+        cardCheckText = findViewById(R.id.card_check_text);
+        cardCheckImg = findViewById(R.id.card_check_img);
+
+        if (qWrong == 0){
+            cardCheckImg.setImageResource(R.drawable.play_again_img);
+            cardCheckText.setText("Play Other");
+        }
 
         getAPKLink();
 
@@ -179,7 +190,7 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
 
                 Intent sendIntent = new Intent(Intent.ACTION_SEND);
                 sendIntent.setType("text/plain");
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Hey there,"+"\n"+"checkout this great quiz app made by one of MY FRIEND"+"\n\n"+apkLink);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Hey there, \n I have scored "+totalScore+"points in this quiz app"+"\n"+"do checkout this great quiz app made by one of MY FRIEND"+"\n\n"+apkLink);
 
                 // (Optional) Here we're setting the title of the content
                 sendIntent.putExtra(Intent.EXTRA_TITLE, "Share your score by...");
@@ -198,10 +209,23 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
             }
         });
 
-        cardPlayOther.setOnClickListener(new View.OnClickListener() {
+        cardCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ResultActivity.this, MainActivity.class));
+                Intent intent;
+
+                if (qWrong == 0){
+                    intent = new Intent(ResultActivity.this, MainActivity.class);
+                }else{
+                    isChecking = true;
+                    intent = new Intent(ResultActivity.this, ShowWrongAns.class);
+                    intent.putExtra("QUIZ_TITLE",qTitle);
+
+
+                }
+                startActivity(intent);
+
+
             }
         });
 
@@ -359,18 +383,6 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
     }
 
     private void devSocialLinks(String link) {
-//        String appLink = "www.google.com";
-//        Intent sendIntent = new Intent(Intent.ACTION_SEND);
-//        sendIntent.setType("text/plain");
-//        sendIntent.putExtra(Intent.EXTRA_TEXT, link);
-//
-//        // (Optional) Here we're setting the title of the content
-//        sendIntent.putExtra(Intent.EXTRA_TITLE, "Connect with Ejaz");
-//
-//        // Show the Sharesheet
-//        startActivity(Intent.createChooser(sendIntent, null));
-
-
         Uri instaUri = Uri.parse(link);
         Intent intent = new Intent(Intent.ACTION_VIEW, instaUri);
         startActivity(intent);

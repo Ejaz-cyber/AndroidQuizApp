@@ -3,12 +3,10 @@ package in.iejaz.orangequiz;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -83,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        QuizActivity.wrongQIndices = null;
+        QuizActivity.wrongAnsIndices = null;
+
         Email = findViewById(R.id.textView2);
         Name = findViewById(R.id.text_name);
         Image = findViewById(R.id.imageView);
@@ -120,12 +121,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 //         to execute only once - to add score fields and setting all score to 0
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        boolean firstStart = prefs.getBoolean("firstStart", true);
-
-        if (firstStart) {
-            setScoretoZero();
-        }
+//        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+//        boolean firstStart = prefs.getBoolean("firstStart", true);
+//
+//        if (firstStart) {
+//            setScoretoZero();
+//        }
 
 
 
@@ -242,47 +243,48 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void setScoretoZero(){
-        arr = new ArrayList<>();
-        DatabaseReference dbRef2;
-
-        // getting every quiz titles
-        final HashMap<String,Object> map2 = new HashMap<>();
-        dbRef2 = FirebaseDatabase.getInstance().getReference().child("Quiz Categories");
-        dbRef2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                    mq = dataSnapshot.getValue(modalQuestion.class);
-//                    questionList.add(mq);
-//                    Log.i("fire","cato = "+dataSnapshot.getValue().toString());
-                    arr.add(dataSnapshot.child("Title").getValue().toString());
-                }
-
-                for (int  i = 0; i< arr.size(); i++){
-                    map2.put(arr.get(i), String.valueOf(0));
-                    Log.i("fireTag", arr.get(i));
-                }
-
-                FirebaseDatabase.getInstance().getReference("Users")
-                        //                                    .child("Users Database")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Score")
-                        .updateChildren(map2);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
-        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("firstStart", false);
-        editor.apply();
-    }
+    // not needed now
+//    private void setScoretoZero(){
+//        arr = new ArrayList<>();
+//        DatabaseReference dbRef2;
+//
+//        // getting every quiz titles
+//        final HashMap<String,Object> map2 = new HashMap<>();
+//        dbRef2 = FirebaseDatabase.getInstance().getReference().child("Quiz Categories");
+//        dbRef2.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+////                    mq = dataSnapshot.getValue(modalQuestion.class);
+////                    questionList.add(mq);
+////                    Log.i("fire","cato = "+dataSnapshot.getValue().toString());
+//                    arr.add(dataSnapshot.child("Title").getValue().toString());
+//                }
+//
+//                for (int  i = 0; i< arr.size(); i++){
+//                    map2.put(arr.get(i), String.valueOf(0));
+//                    Log.i("fireTag", arr.get(i));
+//                }
+//
+//                FirebaseDatabase.getInstance().getReference("Users")
+//                        //                                    .child("Users Database")
+//                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Score")
+//                        .updateChildren(map2);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//
+//        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = prefs.edit();
+//        editor.putBoolean("firstStart", false);
+//        editor.apply();
+//    }
 
 
 
@@ -353,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
         sendIntent.putExtra(Intent.EXTRA_TEXT, "Hey there,"+"\n"+"checkout this great quiz app made by one of MY FRIEND"+"\n\n"+apkLink);
 
         // (Optional) Here we're setting the title of the content
-        sendIntent.putExtra(Intent.EXTRA_TITLE, "Share your score by...");
+        sendIntent.putExtra(Intent.EXTRA_TITLE, "Share this app using...");
 
         // Show the Sharesheet
         startActivity(Intent.createChooser(sendIntent, null));

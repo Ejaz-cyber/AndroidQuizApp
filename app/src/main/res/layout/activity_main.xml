@@ -74,6 +74,7 @@
 
 
                         <!--        // image card-->
+
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardView2"
                             android:layout_width="70dp"

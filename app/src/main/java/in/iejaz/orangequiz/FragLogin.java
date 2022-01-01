@@ -118,7 +118,7 @@ public class FragLogin extends Fragment {
                     intent.putExtra("loginViaEmail",true);
                     startActivity(intent);
                 }else {
-                    setAlerterMsg("Login Failed",""+task.getException().getMessage(),R.color.alerter_default_success_background);
+                    setAlerterMsg("Login Failed",""+task.getException().getMessage(), R.color.lightRed);
                 }
             }
         });
@@ -140,7 +140,7 @@ public class FragLogin extends Fragment {
         Alerter.create((Activity) getContext())
                 .setTitle(title)
                 .setText(msg)
-                .setIcon(R.drawable.remove)
+                .setIcon(R.drawable.ic_baseline_error_outline_24)
                 .enableSwipeToDismiss()
                 .setBackgroundColorRes(color) // or setBackgroundColorInt(Color.CYAN)
                 .show();

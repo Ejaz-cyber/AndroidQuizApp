@@ -69,12 +69,16 @@ public class QuizActivity extends AppCompatActivity {
     CardView cardD;
 
     DatabaseReference dbRef;
-    ArrayList<modalQuestion> questionList;
-
+    static ArrayList<modalQuestion> questionList;
+//    static ArrayList<modalQuestion> wrongAttemptedList;
+    static ArrayList<Integer> wrongAnsIndices;
+    static ArrayList<Integer> wrongQIndices;
     ProgressDialog progressDialog;
 
     int qIndex = 0;
     int moveTill;
+
+    int selectedOptionCard;
 
     int rightAnsCount = 0;
     int wrongAnsCount = 0;
@@ -128,82 +132,80 @@ public class QuizActivity extends AppCompatActivity {
 
         qTitle.setText(QUIZ_TITLE);
 
-
+        wrongAnsIndices = new ArrayList<>();
+        wrongQIndices = new ArrayList<>();
         makeCardClickable();
 
         // loading all questions----------------------------------------------------------------------------
 
-        questionList = new ArrayList<>();
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Quiz Questions").child(QUIZ_TITLE);
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    mq = dataSnapshot.getValue(modalQuestion.class);
-                    questionList.add(mq);
-                }
-                moveTill = questionList.size();
-                progressDialog.dismiss();
-                noOfQues = questionList.size();
-                Collections.shuffle(questionList);                                   // to make list of questions random
-                if (questionList.size() == 0) {
-                    makeDialog("noQuestionAlert");
-                } else {
-                    setData(qIndex,qIndex ,noOfQues);
-                    startTimer(time);
+    questionList = new ArrayList<>();
 
-                    btnNext.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // next question
+    dbRef = FirebaseDatabase.getInstance().getReference().child("Quiz Questions").child(QUIZ_TITLE);
+    dbRef.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                mq = dataSnapshot.getValue(modalQuestion.class);
+                questionList.add(mq);
+            }
+            moveTill = questionList.size();
+            progressDialog.dismiss();
+            noOfQues = questionList.size();
+            Collections.shuffle(questionList);
+            // to make list of questions random
+            if (questionList.size() == 0) {
+                makeDialog("noQuestionAlert");
+            } else {
+                setData(qIndex, qIndex, noOfQues);
+                startTimer(time);
+
+                btnNext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // next question
 //                            checkAnswer(getSelectedAns(), mq.getoAns());
 
-                            checkAnswer(mq.getoAns());
-                            selectedAns = "notSelected";
+                        checkAnswer(mq.getoAns(), qIndex);
+                        selectedAns = "notSelected";
 
-                            qIndex++;
-
-
-                            if (qIndex < moveTill) {
-                                animateLayout();
-                                setData(qIndex,qIndex ,noOfQues);
-                                resetCardColor();
-                                // resetting timer progress
-                                countDownTimer.cancel();
-                                startTimer(time);
-
-                            } else {
-                                countDownTimer.cancel();
-//                                Toast.makeText(QuizActivity.this, "skip = "+questionSkipped+"\n" +
-//                                        "right = "+rightAnsCount+"" +
-//                                        "\nWrong = "+wrongAnsCount, Toast.LENGTH_LONG).show();
+                        qIndex++;
 
 
+                        if (qIndex < moveTill) {
+                            animateLayout();
+                            setData(qIndex, qIndex, noOfQues);
+                            resetCardColor();
+                            // resetting timer progress
+                            countDownTimer.cancel();
+                            startTimer(time);
 
-                                Intent gotoResult = new Intent(QuizActivity.this, ResultActivity.class);
-                                gotoResult.putExtra("qSkiped", questionSkipped);
-                                gotoResult.putExtra("qRight", rightAnsCount);
-                                gotoResult.putExtra("qWrong", wrongAnsCount);
-                                gotoResult.putExtra("noOfQues", noOfQues);
-                                gotoResult.putExtra("quizTitle",QUIZ_TITLE);
-                                startActivity(gotoResult);
+                        } else {
+                            countDownTimer.cancel();
+
+                            Intent gotoResult = new Intent(QuizActivity.this, ResultActivity.class);
+                            gotoResult.putExtra("qSkiped", questionSkipped);
+                            gotoResult.putExtra("qRight", rightAnsCount);
+                            gotoResult.putExtra("qWrong", wrongAnsCount);
+                            gotoResult.putExtra("noOfQues", noOfQues);
+                            gotoResult.putExtra("QUIZ_TITLE", QUIZ_TITLE);
+                            startActivity(gotoResult);
 
 
-                            }
                         }
-                    });
+                    }
+                });
 
-                }
             }
+        }
 
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                progressDialog.dismiss();
-            }
-        });
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+            progressDialog.dismiss();
+        }
+    });
 
-    }
+}
 
     private void animateLayout() {
 
@@ -212,6 +214,14 @@ public class QuizActivity extends AppCompatActivity {
 
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.woople_anim);
         linearLayout.setAnimation(animation);
+
+
+
+        Animation animation2 = AnimationUtils.loadAnimation(this,R.anim.roll);
+        cardA.setAnimation(animation2);
+        cardB.setAnimation(animation2);
+        cardC.setAnimation(animation2);
+        cardD.setAnimation(animation2);
 
 
     }
@@ -316,24 +326,28 @@ public class QuizActivity extends AppCompatActivity {
                 resetCardColor();
                 selectedAns = mq.oA;
                 setSelectedCardColor(cardOption1);
+                selectedOptionCard = 1;
                 break;
 
             case R.id.cardoption2:
                 resetCardColor();
                 selectedAns = mq.oB;
                 setSelectedCardColor(cardOption2);
+                selectedOptionCard = 2;
                 break;
 
             case R.id.cardoption3:
                 resetCardColor();
                 selectedAns = mq.oC;
                 setSelectedCardColor(cardOption3);
+                selectedOptionCard = 3;
                 break;
 
             case R.id.cardoption4:
                 resetCardColor();
                 selectedAns = mq.oD;
                 setSelectedCardColor(cardOption4);
+                selectedOptionCard = 4;
                 break;
 
             default:
@@ -349,13 +363,6 @@ public class QuizActivity extends AppCompatActivity {
         cardMain.setCardElevation(0);
 
 
-        Animation animation = AnimationUtils.loadAnimation(this,R.anim.roll);
-        cardA.setAnimation(animation);
-        cardB.setAnimation(animation);
-        cardC.setAnimation(animation);
-        cardD.setAnimation(animation);
-
-
     }
 
     public void makeCardClickable() {
@@ -365,13 +372,7 @@ public class QuizActivity extends AppCompatActivity {
         cardOption4.setClickable(true);
     }
 
-//    public String getSelectedAns() {
-//
-//
-//        return selectedAns;
-//    }
-
-    public void checkAnswer(String actualAns) {
+    public void checkAnswer(String actualAns, int qIndex) {
 //        Toast.makeText(QuizActivity.this, "selected = "+selectedAns+"\nactual = "+actualAns, Toast.LENGTH_LONG).show();
 
         if (selectedAns == null || selectedAns.equals("notSelected")) {
@@ -380,12 +381,13 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         if (selectedAns.equals(actualAns)) {
-            Toast.makeText(QuizActivity.this, "good", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(QuizActivity.this, "good", Toast.LENGTH_SHORT).show();
             rightAnsCount++;
         } else {
             wrongAnsCount++;
-            Toast.makeText(QuizActivity.this, "bad", Toast.LENGTH_SHORT).show();
-
+//            Toast.makeText(QuizActivity.this, "bad", Toast.LENGTH_SHORT).show();
+            wrongAnsIndices.add(selectedOptionCard);
+            wrongQIndices.add(qIndex);
         }
     }
 

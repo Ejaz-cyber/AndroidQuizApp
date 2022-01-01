@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="timer_progress_gradient">
-        <item>#DA5F2E</item>
-        <item>#F6EBE6</item>
+        <item>#001220</item>
+        <item>#103959</item>
     </array>
 </resources>

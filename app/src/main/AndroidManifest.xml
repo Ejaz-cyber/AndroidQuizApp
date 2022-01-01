@@ -19,7 +19,7 @@
             android:exported="false"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ResultActivity"
             android:exported="false"
@@ -35,6 +35,12 @@
             android:name=".QuizActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ShowWrongAns"
+            android:exported="false"
+            android:parentActivityName=".ResultActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity

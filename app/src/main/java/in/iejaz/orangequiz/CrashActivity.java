@@ -132,7 +132,7 @@ public class CrashActivity extends AppCompatActivity {
                 if (task.isSuccessful()){
                     setAlerterMsg("Thank you","I will do my best to resolve this ASAP", R.color.lightGreen, R.drawable.alerter_ic_face);
                 }else{
-                    setAlerterMsg("Error sending crash report","please check your internet", R.color.lightRed, R.drawable.sad);
+                    setAlerterMsg("Error sending crash report","please check your internet", R.color.lightRed, R.drawable.ic_baseline_error_outline_24);
 
                 }
             }

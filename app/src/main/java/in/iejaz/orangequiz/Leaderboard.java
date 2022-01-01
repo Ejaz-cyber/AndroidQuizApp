@@ -165,17 +165,6 @@ public class Leaderboard extends AppCompatActivity {
 
     }
 
-//    private void setCurrentUserData(int rank) {
-//
-//
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//
-//        binding.leaderUserRank.setText(rank+"");
-//        Glide.with(this).load(user.getPhotoUrl()).into(binding.leaderUserImg);
-//        binding.leaderUserName.setText(user.getDisplayName());
-//        binding.leaderUserChip.setText((int) ResultActivity.USERPOINTS+"");
-//    }
-
     private void setTopLeaders(List<LeaderModalClass> listData) {
 
 
@@ -219,8 +208,22 @@ public class Leaderboard extends AppCompatActivity {
     }
 
     private String formatName(String name) {
-        if (name.contains(" ")){
-            name = name.replace(" ", "\n");
+        if (name.contains(" ") || name.contains("_") || name.contains("-")){
+
+            if (name.contains(" ")){
+                name = name.replace(" ", "\n");
+                return name;
+            }
+            if (name.contains("_")){
+                name = name.replace("_", "\n");
+                return name;
+
+            }
+            if (name.contains("-")){
+                name = name.replace("-", "\n");
+                return name;
+            }
+
         }
 
         return name;
