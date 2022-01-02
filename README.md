@@ -4,7 +4,7 @@ An android quiz app created using Android Studio with our language JAVA that has
 Just try it out...
 Apk link -
 
-Drive https://drive.google.com/drive/folders/1Mp60tnYtjC7VHkcLFMmrszdp3W2-zZzw
+Drive https://drive.google.com/file/d/1PgpaB0PWvUfAWSE8yABsrR-Y-eKN1Nq0/view?usp=sharing
 
 MediaFire https://www.mediafire.com/file/hug1veqi7e6nsnt/Quiz_App_%2528Oraange_Quiz%2529.apk/file
 
