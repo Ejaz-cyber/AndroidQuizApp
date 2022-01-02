@@ -20,4 +20,4 @@ Mega https://mega.nz/file/RYhAWLAS#hU_vKHCV9hhnFRLIKlXVtFwgFAHpCOBONnHkUylRcT4
 
 ![Screenshot_1640117224](https://user-images.githubusercontent.com/56214443/146992455-08540c2f-edb0-467a-90e8-ff2c85e171b4.png)
  -->
-<a href="https://user-images.githubusercontent.com/56214443/146992455-08540c2f-edb0-467a-90e8-ff2c85e171b4.png"><img src="https://user-images.githubusercontent.com/56214443/146992455-08540c2f-edb0-467a-90e8-ff2c85e171b4.png" align="left" height="800" width="600" ></a>
+<a href="https://user-images.githubusercontent.com/56214443/146992455-08540c2f-edb0-467a-90e8-ff2c85e171b4.png"><img src="https://user-images.githubusercontent.com/56214443/146992455-08540c2f-edb0-467a-90e8-ff2c85e171b4.png" align="left" height="790" width="400" ></a>
