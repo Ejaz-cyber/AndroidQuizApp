@@ -29,3 +29,6 @@ https://drive.google.com/file/d/1trFexE-PmDdMA5LjQD5mHvFg5mcz2Irr/view?usp=shari
 
 
 ![App Screenshot](https://drive.google.com/file/d/1trFexE-PmDdMA5LjQD5mHvFg5mcz2Irr/view?usp=sharing)
+
+![App Screenshot](https://drive.google.com/file/d/1ShHvAGeJvy9xnamdZpLSNWbMymORKJjR/view?usp=sharing)
+
