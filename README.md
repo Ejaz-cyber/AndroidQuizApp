@@ -2,7 +2,14 @@
 An android quiz app created using Android Studio with our language JAVA that has great layout design, dynamic questions using firebase and what not...
 
 Just try it out...
-Apk link -> https://drive.google.com/drive/folders/1Mp60tnYtjC7VHkcLFMmrszdp3W2-zZzw
+Apk link -
+
+Drive https://drive.google.com/drive/folders/1Mp60tnYtjC7VHkcLFMmrszdp3W2-zZzw
+
+MediaFire https://www.mediafire.com/file/hug1veqi7e6nsnt/Quiz_App_%2528Oraange_Quiz%2529.apk/file
+
+Mega https://mega.nz/file/RYhAWLAS#hU_vKHCV9hhnFRLIKlXVtFwgFAHpCOBONnHkUylRcT4
+
 
 
 ![Screenshot_1640117302](https://user-images.githubusercontent.com/56214443/146992292-113c00f0-bcfd-43cd-b43d-a7c5421b4a03.png)
