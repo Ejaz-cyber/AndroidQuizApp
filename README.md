@@ -1,14 +1,22 @@
-# AndroidQuizApp
-An android quiz app created using Android Studio with our language JAVA that has great layout design, dynamic questions using firebase and what not...
+# Android Quiz App | Orange Quiz
+An Android quiz app with decent UI  :)
 
-Just try it out...
-Apk link -> https://drive.google.com/drive/folders/1Mp60tnYtjC7VHkcLFMmrszdp3W2-zZzw
+Working on it....
+
+<!-- 
+## Features
+My quiz app contains a total of Eight Screens or Activities, having animations, transition, interactive UI and Enjoyable quiz questions 
 
 
-![Screenshot_1640117302](https://user-images.githubusercontent.com/56214443/146992292-113c00f0-bcfd-43cd-b43d-a7c5421b4a03.png)
 
-![Screenshot_1640117268](https://user-images.githubusercontent.com/56214443/146992412-4a382187-5715-46a1-b084-0e8496096022.png)
 
-![Screenshot_1640117406](https://user-images.githubusercontent.com/56214443/146992431-60140471-c3d7-44e8-b637-c0fab1edec03.png)
+**Welcome Screen ->** User can create their account by entering their name, email and a password, after that the user is able to login with his email and password. 
+    Signup and Login can be skipped by using Google signin method by clicking on the google's logo at the bottom.
 
-![Screenshot_1640117224](https://user-images.githubusercontent.com/56214443/146992455-08540c2f-edb0-467a-90e8-ff2c85e171b4.png)
+**Dashboard Screen ->** Contains a card showing name, email, profile photo from provided email and total score earned by attempting quiz. Below that a Gridview showing all the available quiz categories by clicking on it user will be redirected to next Screen i.e., Quiz Activity.
+
+**Quiz Activity ->** Consists of a Progress bar at top to show you how much time you have left, a Cardview showing question below that total 4 cards for options, then a next button if you wanna skip the queation or you have selected an option.
+    if the Progress bas reaches zero then a dialog box will appear and your quiz is over, you will be redirected to Dashboard Screen where you can choose the same category or some other.
+
+**Result Activity ->** Here you will be shown your percentage of accuracy
+     -->
