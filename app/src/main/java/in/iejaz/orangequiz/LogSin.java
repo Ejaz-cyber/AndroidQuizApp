@@ -154,7 +154,7 @@ public class LogSin extends AppCompatActivity {
                     map.put("email",user.getEmail());
                     map.put("name",user.getDisplayName());
                     map.put("password","notApplicable");
-                    map.put("tPoints", "");
+//                    map.put("tPoints", "");
                     FirebaseDatabase.getInstance().getReference("Users")
 //                                    .child("Users Database")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
