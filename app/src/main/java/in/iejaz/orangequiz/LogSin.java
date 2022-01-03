@@ -154,11 +154,10 @@ public class LogSin extends AppCompatActivity {
                     map.put("email",user.getEmail());
                     map.put("name",user.getDisplayName());
                     map.put("password","notApplicable");
-//                    map.put("tPoints", "");
                     FirebaseDatabase.getInstance().getReference("Users")
-//                                    .child("Users Database")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            .updateChildren(map)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             updateUI(user);
