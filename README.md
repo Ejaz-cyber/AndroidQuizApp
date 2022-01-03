@@ -29,5 +29,10 @@ My quiz app contains a total of Eight Screens or Activities, having animations, 
 **Review Activity ->** Here you will be shown all your wrong attempted answers
 
 **Leaderboard Activity ->** Here 
+![1](https://user-images.githubusercontent.com/56214443/147945750-78ca85f7-70ee-42de-a7d8-7b56373d16ee.png)
+![2](https://user-images.githubusercontent.com/56214443/147945767-f21233a1-1f4b-4cd9-bd4f-df6ec5a3b50f.gif)
+![3](https://user-images.githubusercontent.com/56214443/147945783-3087166c-e0c2-4dc2-8553-c85bbc568ea9.png)
+
 
      -->
+   
