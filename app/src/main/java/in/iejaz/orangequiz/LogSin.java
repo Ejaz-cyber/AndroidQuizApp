@@ -156,6 +156,7 @@ public class LogSin extends AppCompatActivity {
                     map.put("password","notApplicable");
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+
                             .updateChildren(map)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
