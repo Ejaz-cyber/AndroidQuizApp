@@ -32,7 +32,7 @@ public class myQuizCardAdapter extends FirebaseRecyclerAdapter<QuizCatoModel,myQ
 
                 Intent openQuizActivity = new Intent(v.getContext(),QuizActivity.class);
                 openQuizActivity.putExtra("QUIZ_TITLE",model.getTitle());
-                openQuizActivity.putExtra("imgLogoUrl",model.getImgUrl());
+//                openQuizActivity.putExtra("imgLogoUrl",model.getImgUrl());
                 v.getContext().startActivity(openQuizActivity);
 
             }

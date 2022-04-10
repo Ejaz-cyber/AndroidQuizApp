@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "421085775901",
+    "firebase_url": "https://orange-quiz-32e35-default-rtdb.firebaseio.com",
     "project_id": "orange-quiz-32e35",
     "storage_bucket": "orange-quiz-32e35.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "421085775901-ruip2o9dhkcau8s78mlvkcgsqgn35pkf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.iejaz.orangequiz",
+            "certificate_hash": "9e202763066c94fee0367124a766e206266a71d1"
+          }
+        },
         {
           "client_id": "421085775901-3vbvg06t3olk2i9q2fg29s000957opeu.apps.googleusercontent.com",
           "client_type": 3

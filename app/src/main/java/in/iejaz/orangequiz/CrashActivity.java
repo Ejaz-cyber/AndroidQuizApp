@@ -1,7 +1,11 @@
 package in.iejaz.orangequiz;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,7 +31,7 @@ import com.tapadoo.alerter.Alerter;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class CrashActivity extends AppCompatActivity {
+public class CrashActivity extends AppCompatActivity implements devBottomSheet.devSheetListener{
 
     LinearLayout moreDetailsLayout;
     Toolbar toolbar;
@@ -42,6 +46,7 @@ public class CrashActivity extends AppCompatActivity {
     String crashDetails;
 
     HashMap<String, Object> crashMap;
+    private static final int devMenuId = 121;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +56,9 @@ public class CrashActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Report App Crash");
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
         setSupportActionBar(toolbar);
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         setStatusBarColor();
 
@@ -155,5 +162,58 @@ public class CrashActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(this.getResources().getColor(R.color.crashPage));
+    }
+
+    @Override
+    public void onButtonClicked(String text) {
+
+        String githubLink = "https://github.com/Ejaz-cyber";
+        String fbLink = "https://www.facebook.com/ejaz.mahmood.505";
+        String instaLink = "https://www.instagram.com/invites/contact/?i=16nobqrqwqyvr&utm_content=i0vgt0w";
+
+        switch (text){
+            case "github":
+                devSocialLinks(githubLink);
+
+                break;
+            case "insta":
+                devSocialLinks(instaLink);
+
+                break;
+            case "fb":
+                devSocialLinks(fbLink);
+
+                break;
+        }
+
+    }
+
+    private void devSocialLinks(String link) {
+        Uri instaUri = Uri.parse(link);
+        Intent intent = new Intent(Intent.ACTION_VIEW, instaUri);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuItem a = menu.add(0,devMenuId,0,"Developer's Profile"); // position, id, 0, title
+        a.setIcon(R.drawable.about_dev_img);
+        a.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case devMenuId:
+                devBottomSheet devBottomSheet = new devBottomSheet();
+                devBottomSheet.show(getSupportFragmentManager(), "devBottomSheet");
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

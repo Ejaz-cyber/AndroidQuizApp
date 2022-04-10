@@ -52,10 +52,6 @@ public class Leaderboard extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
-//    LinearLayout ll1;
-//    LinearLayout ll2;
-//    LinearLayout ll3;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,10 +62,17 @@ public class Leaderboard extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-
-//        ll1 = findViewById(R.id.ll1);
-//        ll2 = findViewById(R.id.ll2);
-//        ll3 = findViewById(R.id.ll3);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Leaderboard");
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Leaderboard.super.onBackPressed();
+            }
+        });
 
         binding.ll1.setVisibility(View.INVISIBLE);
         binding.ll2.setVisibility(View.INVISIBLE);

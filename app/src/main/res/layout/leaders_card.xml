@@ -43,7 +43,7 @@
             android:id="@+id/leader_user_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/orange_dp2"
+            android:src="@drawable/firequiz_logo"
             />
     </com.google.android.material.card.MaterialCardView>
 

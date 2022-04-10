@@ -10,12 +10,22 @@
     android:orientation="vertical"
     android:weightSum="10">
 
+    <include
+
+        android:id="@+id/include3"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="630dp"
         android:orientation="vertical"
         android:layout_weight="5"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -70,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:onClick="showLeaderImgDialog"
-                    android:src="@drawable/logo_final_no_dp" />
+                    android:src="@drawable/firequiz_logo_nodp" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -116,7 +126,7 @@
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:onClick="showLeaderImgDialog"
-                        android:src="@drawable/logo_final_no_dp" />
+                        android:src="@drawable/firequiz_logo_nodp" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
@@ -197,7 +207,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:onClick="showLeaderImgDialog"
-                        android:src="@drawable/logo_final_no_dp"
+                        android:src="@drawable/firequiz_logo_nodp"
                         />
 
                 </com.google.android.material.card.MaterialCardView>

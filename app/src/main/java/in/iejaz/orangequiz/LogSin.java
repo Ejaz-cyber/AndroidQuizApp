@@ -154,6 +154,7 @@ public class LogSin extends AppCompatActivity {
                     map.put("email",user.getEmail());
                     map.put("name",user.getDisplayName());
                     map.put("password","notApplicable");
+                    // logout ke bad login krne pr score aur tpoints
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
 
@@ -191,7 +192,7 @@ public class LogSin extends AppCompatActivity {
 
     public void setAlerterMsg(String msg ,  int color, int drawable){
         Alerter.create(LogSin.this)
-                .setTitle("Orange Quiz")
+                .setTitle(R.string.app_name)
                 .setText(msg)
                 .setIcon(drawable)
                 .enableSwipeToDismiss()

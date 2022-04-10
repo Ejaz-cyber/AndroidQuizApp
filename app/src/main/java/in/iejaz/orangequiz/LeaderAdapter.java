@@ -39,17 +39,20 @@ public class LeaderAdapter extends FirebaseRecyclerAdapter<LeaderModalClass, Lea
         holder.userPts.setText(String.valueOf(model.gettPoints()+"pts"));
         holder.rank.setText(new StringBuilder().append((Leaderboard.totalLeaders - position)).append("").toString());
 
+
         if (user.getDisplayName().equals(model.getName())){
-            holder.root.setBackgroundColor(Color.parseColor("#4FCDBA9D"));
+            holder.root.setBackgroundColor(Color.parseColor("#56CDBA9D"));
+        }else{
+            holder.root.setBackgroundColor(Color.parseColor("#3C000000"));
         }
         holder.userName.setText(model.getName());
-
 
 
         // linear layout se user ka rank set krne ke liye try kiye the nhi hua
 //        if (model.getName().equals(ResultActivity.USERNAME) && model.gettPoints() == ResultActivity.USERPOINTS){
 //            Leaderboard.RANK = Leaderboard.totalLeaders - position;
 //        }
+
 
     }
 

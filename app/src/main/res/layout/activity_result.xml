@@ -446,7 +446,7 @@
             tools:layout_editor_absoluteY="108dp">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_dev"
+                android:id="@+id/card_play_again"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:layout_gravity="center"
@@ -460,7 +460,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/about_dev_img"
+                    android:src="@drawable/play_again_img"
 
                     />
             </com.google.android.material.card.MaterialCardView>
@@ -470,7 +470,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="About Developer"
+                android:text="Play Again"
                 android:textColor="@color/white" />
         </LinearLayout>
 

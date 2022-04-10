@@ -18,7 +18,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
@@ -36,9 +35,8 @@ import java.util.Collections;
 public class QuizActivity extends AppCompatActivity {
 
     String QUIZ_TITLE;
-    String imgLogoUrl;
+//    String imgLogoUrl;
 
-    Toolbar toolbar2;
 
     CountDownTimer countDownTimer;
     private static final long timeInMillis = 20000;     // 20 seconds in milliseconds
@@ -102,7 +100,7 @@ public class QuizActivity extends AppCompatActivity {
         progressDialog.show();
 
         QUIZ_TITLE = getIntent().getStringExtra("QUIZ_TITLE");
-        imgLogoUrl = getIntent().getStringExtra("imgLogoUrl");
+//        imgLogoUrl = getIntent().getStringExtra("imgLogoUrl");
 
         progressBarHorizontal = findViewById(R.id.timer_pbar);
         progressBarHorizontal.setMax(progressbarMax);
@@ -260,7 +258,6 @@ public class QuizActivity extends AppCompatActivity {
             dialogView.findViewById(R.id.btn_timeup_goback).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(QuizActivity.this, "ok", Toast.LENGTH_SHORT).show();
                     alertDialog.cancel();
                     startActivity(new Intent(QuizActivity.this, MainActivity.class));
                 }

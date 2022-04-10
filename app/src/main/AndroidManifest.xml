@@ -15,41 +15,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OrangeQuiz">
         <activity
-            android:name=".CrashActivity"
+            android:name="in.iejaz.orangequiz.CrashActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="in.iejaz.orangequiz.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ResultActivity"
+            android:name="in.iejaz.orangequiz.ResultActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="in.iejaz.orangequiz.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".Leaderboard"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".QuizActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".ShowWrongAns"
-            android:exported="false"
-            android:parentActivityName=".ResultActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".LogSin"
+            android:name="in.iejaz.orangequiz.Leaderboard"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".sp"
+            android:name="in.iejaz.orangequiz.QuizActivity"
+            android:exported="false"
+            android:parentActivityName="in.iejaz.orangequiz.MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="in.iejaz.orangequiz.ShowWrongAns"
+            android:exported="false"
+            android:parentActivityName="in.iejaz.orangequiz.ResultActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="in.iejaz.orangequiz.LogSin"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="in.iejaz.orangequiz.sp"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             tools:ignore="LockedOrientationActivity">
@@ -60,7 +60,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="in.iejaz.orangequiz.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">

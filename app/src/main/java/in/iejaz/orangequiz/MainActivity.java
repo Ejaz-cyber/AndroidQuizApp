@@ -91,10 +91,10 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Orange Welcomes you");
+        toolbar.setTitle("FireQuiz Welcomes you");
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Getting everything for you...");
+        progressDialog.setMessage("Getting data...");
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
 
@@ -118,16 +118,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-
-//         to execute only once - to add score fields and setting all score to 0
-//        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-//        boolean firstStart = prefs.getBoolean("firstStart", true);
-//
-//        if (firstStart) {
-//            setScoretoZero();
-//        }
-
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -235,60 +225,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void setAlerterMsg(String msg ,  int color, int drawable){
         Alerter.create(MainActivity.this)
-                .setTitle("Orange Quiz")
+                .setTitle(R.string.app_name)
                 .setText(msg)
                 .setIcon(drawable)
                 .enableSwipeToDismiss()
                 .setBackgroundColorRes(color) // or setBackgroundColorInt(Color.CYAN)
                 .show();
     }
-
-    // not needed now
-//    private void setScoretoZero(){
-//        arr = new ArrayList<>();
-//        DatabaseReference dbRef2;
-//
-//        // getting every quiz titles
-//        final HashMap<String,Object> map2 = new HashMap<>();
-//        dbRef2 = FirebaseDatabase.getInstance().getReference().child("Quiz Categories");
-//        dbRef2.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-////                    mq = dataSnapshot.getValue(modalQuestion.class);
-////                    questionList.add(mq);
-////                    Log.i("fire","cato = "+dataSnapshot.getValue().toString());
-//                    arr.add(dataSnapshot.child("Title").getValue().toString());
-//                }
-//
-//                for (int  i = 0; i< arr.size(); i++){
-//                    map2.put(arr.get(i), String.valueOf(0));
-//                    Log.i("fireTag", arr.get(i));
-//                }
-//
-//                FirebaseDatabase.getInstance().getReference("Users")
-//                        //                                    .child("Users Database")
-//                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Score")
-//                        .updateChildren(map2);
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//
-//
-//        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-//        SharedPreferences.Editor editor = prefs.edit();
-//        editor.putBoolean("firstStart", false);
-//        editor.apply();
-//    }
-
-
-
-
 
 
     @Override
@@ -352,9 +295,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent sendIntent = new Intent(Intent.ACTION_SEND);
         sendIntent.setType("text/plain");
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "Hey there,"+"\n"+"checkout this great quiz app made by one of MY FRIEND"+"\n\n"+apkLink);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Hey there,\n"+"checkout this great quiz app made by one of MY FRIEND"+"\n\n"+apkLink);
 
-        // (Optional) Here we're setting the title of the content
+        // setting the title of the content
         sendIntent.putExtra(Intent.EXTRA_TITLE, "Share this app using...");
 
         // Show the Sharesheet
@@ -379,43 +322,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-//    public void FillCard_method1(){     // through email and password
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if (user != null) {
-//            // User is signed in
-//            // Name, email address, and profile photo Url
-//            String name = user.getDisplayName();
-//            String email = user.getEmail();
-//            Uri photoUrl = user.getPhotoUrl();
-//
-//            Log.i("tam", String.valueOf(user.getPhotoUrl()));
-//            // Check if user's email is verified
-//            boolean emailVerified = user.isEmailVerified();
-//            // The user's ID, unique to the Firebase project. Do NOT use this value to
-//            // authenticate with your backend server, if you have one. Use
-//            // FirebaseUser.getIdToken() instead.
-//            String uid = user.getUid();
-//
-//            // Id of the provider (ex: google.com)
-////            String providerId = user.getProviderId();
-//            String providerId = String.valueOf(user.getProviderData());
-//
-//            Toast.makeText(MainActivity.this,"photo = "+user.getPhotoUrl(),Toast.LENGTH_LONG).show();
-//
-//            Name.setText(name);
-//            Email.setText(email);
-//            Glide.with(this)
-//                    .load(photoUrl)
-//                    .into(Image);
-//
-//        } else {
-//            // No user is signed in
-//            signout();
-//        }
-//    }
-
-
     public void FillCard_method2(){
         if(firebaseUser != null) {
 
@@ -437,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
                                 .load(firebaseUser.getPhotoUrl())
                                 .into(Image);
                     }else{
-                        Image.setImageResource(R.drawable.logo_final_no_dp);
+                        Image.setImageResource(R.drawable.firequiz_logo_nodp);
                     }
 
 
@@ -469,4 +375,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        super.onBackPressed();
+    }
 }

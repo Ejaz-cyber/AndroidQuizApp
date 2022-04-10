@@ -2,16 +2,19 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
 <!--    this is backgroud-->
-    <item android:drawable="@drawable/splash_gradient"/>
+<!--    <item android:drawable="@drawable/splash_gradient"/>-->
 
-<!--    this is main thing to splash-->
-    <item>
-        <bitmap android:gravity="center"
-            android:src="@drawable/logo_final2"
+<!--    <item>-->
+<!--        <bitmap-->
+<!--            android:gravity="center"-->
+<!--            android:tint="@color/black"-->
+<!--            android:src="@drawable/firequiz_sp_nobg"-->
 
-            />
-    </item>
+<!--            />-->
+<!--    </item>-->
 
+
+    <item android:drawable="@drawable/firequiz_sp"/>
 
 
 

@@ -1,7 +1,6 @@
 package in.iejaz.orangequiz;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -32,7 +31,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class ResultActivity extends AppCompatActivity implements devBottomSheet.devSheetListener , ReviewDialog.myReviewDialogListener{
+public class ResultActivity extends AppCompatActivity
+        implements ReviewDialog.myReviewDialogListener{
 
     int qWrong;
     int qRight;
@@ -52,7 +52,7 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
     TextView rightAns;
     TextView wrongAns;
 
-    CardView cardDev;
+    CardView cardPlayAgain;
     CardView cardShare;
     CardView cardCheck;
     CardView cardLeaderBoard;
@@ -70,7 +70,8 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
     static long USERPOINTS;
 
     // if no images found then this image will be used
-    private static final String NO_IMG_URL = "https://firebasestorage.googleapis.com/v0/b/orange-quiz-32e35.appspot.com/o/noImglogo%2Flogo_final_no_dp.jpg?alt=media&token=d679e49c-e197-43b5-8093-f24e52ab1582";
+    private static final String NO_IMG_URL =
+            "https://firebasestorage.googleapis.com/v0/b/orange-quiz-32e35.appspot.com/o/noImglogo%2Ffirequiz_sp_nodp.png?alt=media&token=01205158-f94b-45b0-be46-41d0ae801791";
 
     String apkLink;
     static boolean isChecking = false;
@@ -103,7 +104,7 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
         rightAns = findViewById(R.id.right_ans);
         wrongAns = findViewById(R.id.wrong_ans);
 
-        cardDev = findViewById(R.id.card_dev);
+        cardPlayAgain = findViewById(R.id.card_play_again);
         cardLeaderBoard = findViewById(R.id.card_leaderboard);
         cardCheck = findViewById(R.id.card_check);
         cardReview = findViewById(R.id.card_review);
@@ -114,7 +115,7 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
         cardCheckImg = findViewById(R.id.card_check_img);
 
         if (qWrong == 0){
-            cardCheckImg.setImageResource(R.drawable.play_again_img);
+            cardCheckImg.setImageResource(R.drawable.play_other);
             cardCheckText.setText("Play Other");
         }
 
@@ -175,14 +176,17 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
 
         totalQues.setText(noOfQues + "");
 
-        cardDev.setOnClickListener(new View.OnClickListener() {
+
+        cardPlayAgain.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                devBottomSheet devBottomSheet = new devBottomSheet();
-                devBottomSheet.show(getSupportFragmentManager(), "devBottomSheet");
-                
+            public void onClick(View view) {
+
+                Intent openQuizActivity = new Intent(ResultActivity.this,QuizActivity.class);
+                openQuizActivity.putExtra("QUIZ_TITLE",qTitle);
+                startActivity(openQuizActivity);
             }
         });
+
 
         cardShare.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -358,35 +362,7 @@ public class ResultActivity extends AppCompatActivity implements devBottomSheet.
         startActivity(new Intent(ResultActivity.this, MainActivity.class));
     }
 
-    @Override
-    public void onButtonClicked(String text) {
 
-        String githubLink = "https://github.com/Ejaz-cyber";
-        String fbLink = "https://www.facebook.com/ejaz.mahmood.505";
-        String instaLink = "https://www.instagram.com/invites/contact/?i=16nobqrqwqyvr&utm_content=i0vgt0w";
-
-        switch (text){
-            case "github":
-                devSocialLinks(githubLink);
-
-                break;
-            case "insta":
-                devSocialLinks(instaLink);
-
-                break;
-            case "fb":
-                devSocialLinks(fbLink);
-
-                break;
-        }
-
-    }
-
-    private void devSocialLinks(String link) {
-        Uri instaUri = Uri.parse(link);
-        Intent intent = new Intent(Intent.ACTION_VIEW, instaUri);
-        startActivity(intent);
-    }
 
 
     @Override
