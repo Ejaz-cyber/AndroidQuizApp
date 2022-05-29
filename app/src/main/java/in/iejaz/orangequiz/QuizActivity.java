@@ -255,6 +255,7 @@ public class QuizActivity extends AppCompatActivity {
             View dialogView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.timeout_dialog, viewGroup, false);
             builder.setView(dialogView);
             final AlertDialog alertDialog = builder.create();
+            alertDialog.setCanceledOnTouchOutside(false);
             dialogView.findViewById(R.id.btn_timeup_goback).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

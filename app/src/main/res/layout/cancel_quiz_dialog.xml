@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/btn1"
+    app:cardBackgroundColor="@color/white"
     android:background="@android:color/transparent"
     app:cardElevation="18dp"
     android:clickable="true"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:text="Are you sure to cancel the test ?"/>
@@ -62,7 +62,7 @@
                 android:text="Yes"
                 android:layout_margin="12dp"
                 android:textColor="@color/white"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.MaterialComponents.Button"
                 />
 
             <com.google.android.material.button.MaterialButton
