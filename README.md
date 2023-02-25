@@ -49,8 +49,7 @@ Thank you... and 🙏 please do check out
 
 
 Download links
- - [MediaFire](https://www.mediafire.com/file/9jo6be0mpp887js/Quiz_App_%2528Orange_Quiz%2529.apk/file)
- - [Google Drive](https://drive.google.com/file/d/1D2IxAvkbF9MhGrWu0ubgDYUR-KayKmeT/view?usp=sharing)
+
  - [Mega](https://mega.nz/file/MQ4DRK7S#kfbVus3p10IavM6G9BOtdhj-_9f3DRiCJvFZwqNHOj4)
 
 
